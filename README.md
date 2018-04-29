@@ -2,7 +2,7 @@
 This project is for CSE-5058 `Introduction to Artificial Intelligence` course at the University of Akdeniz. 
 The goal is to implement generic approach for given Constraint Satisfaction Problems (CSP) which is inside _.../src/main/resources/CSP-Project-Classroom.txt_.
 
-#PROBLEM APPROACH
+# PROBLEM APPROACH
 I have constructed the project around significant abstraction of CSPs and implemented pseudocode for solving given problem that is assignment of classroom course pair.
 A Problem class that is generic CSP class is modeled as a subclass of the CSCScheduleProblem class. 
 This class serves set of "Domains", "Variables" and "Constraints". 
@@ -31,5 +31,5 @@ For more complicated problems, we need some heuristics which generalize like `Or
 MRV a.k.a Most-Constraint-Value (MCV) chooses the variable with the most constraints on remaining variables.
 LCV chooses the least constraints on remaining variables.
 
-#USAGE
+# USAGE
 To test the program, just check CSCScheduleProgramSpec class that is unit test of CSP solving approach
