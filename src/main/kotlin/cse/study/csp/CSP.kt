@@ -4,6 +4,7 @@ import cse.study.csp.problem.CSCScheduleAssignment
 import cse.study.csp.problem.CSCScheduleProblem
 import cse.study.csp.problem.Course
 import cse.study.csp.search.Backtracking
+import org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString
 import org.slf4j.LoggerFactory
 
 fun main(args: Array<String>) {
@@ -12,13 +13,13 @@ fun main(args: Array<String>) {
 
     val cscSchedule = CSCScheduleProblem()
 
-//    cscSchedule.variables.forEach {
-//        log.info("{}", ToStringBuilder.reflectionToString(it))
-//    }
+    cscSchedule.variables.forEach {
+        log.info("Variable: ${reflectionToString(it)}")
+    }
 
-//    cscSchedule.constraints.forEach {
-//        log.info("{}", ToStringBuilder.reflectionToString(it))
-//    }
+    cscSchedule.constraints.forEach {
+        log.info("Constraint: ${reflectionToString(it)}")
+    }
 
     val search = Backtracking(cscSchedule, CSCScheduleAssignment.BLANK)
     val finalAssignment = search.solve()

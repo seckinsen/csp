@@ -16,3 +16,11 @@ Due to the number of students that are enrolled and the classroom size:
 • C01, available to teach Classes 1, 2, 3, 4, 5
 
 Considering these constraints and the problem described please implement a generic CSP algorithm to solve the problem.
+
+========================================================================================================================
+
+C1 --> [ 8:00 - 9:00 ] {"C01"}
+C2 --> [ 8:30 - 9:30 ] {"B01", C01}
+C3 --> [ 9:00 - 10:00 ] {"A01", B01, C01}
+C4 --> [ 9:00 - 10:00 ] {A01, B01, "C01"}
+C5 --> [ 9:30 - 10:30 ] {"B01", C01}
