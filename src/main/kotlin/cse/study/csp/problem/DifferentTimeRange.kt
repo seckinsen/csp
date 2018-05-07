@@ -7,10 +7,7 @@ import java.util.*
 class DifferentTimeRange(val timeRange: TimeRange) : Constraint<CSCScheduleAssignment>() {
 
     //     There is non assign value into constraint variables that why it is not satisfied
-    override fun satisfied(): Boolean = variable
-            .takeIf { Objects.isNull(it.assignment) }
-            ?.let { false }
-            ?: true
+    override fun satisfied(): Boolean = Objects.nonNull(variable.assignment)
 
     // TODO --> Refactor!!!
     override fun consistent(assignment: CSCScheduleAssignment): Pair<Variable?, Boolean> {
@@ -18,9 +15,7 @@ class DifferentTimeRange(val timeRange: TimeRange) : Constraint<CSCScheduleAssig
 
         assignment.assignments
                 .filter { checkConflict(it.key, it.value) }
-                .forEach { variable, _ ->
-                    checkFlag.add(checkArcConsistency(variable))
-                }
+                .forEach { variable, _ -> checkFlag.add(checkArcConsistency(variable)) }
 
         return checkFlag.firstOrNull { !it.second } ?: Pair(null, true)
     }
@@ -33,9 +28,6 @@ class DifferentTimeRange(val timeRange: TimeRange) : Constraint<CSCScheduleAssig
             ?.let { Pair(it, false) }
             ?: Pair(null, true)
 
-    private fun checkVariableMatchup(variable: Variable) = variable
-            .takeIf { it == this.variable }
-            ?.let { false }
-            ?: true
+    private fun checkVariableMatchup(variable: Variable) = variable != this.variable
 
 }

@@ -58,10 +58,7 @@ class CSCScheduleProblem : Problem<CSCScheduleAssignment>() {
         return constraints
     }
 
-    override fun isSatisfied(assignment: CSCScheduleAssignment): Boolean = variables.size
-            .takeIf { it > assignment.assignments.size }
-            ?.let { false }
-            ?: true
+    override fun isSatisfied(assignment: CSCScheduleAssignment): Boolean = variables.size <= assignment.assignments.size
 
     // TODO --> Refactor!!!
     override fun isConsistent(assignment: CSCScheduleAssignment): Variable? {
