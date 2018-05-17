@@ -3,7 +3,7 @@ package cse.study.csp
 import cse.study.csp.problem.CSCScheduleAssignment
 import cse.study.csp.problem.CSCScheduleProblem
 import cse.study.csp.problem.Course
-import cse.study.csp.search.Backtracking
+import cse.study.csp.problem.CSCScheduleBacktracking
 import org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString
 import org.slf4j.LoggerFactory
 
@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
         log.info("Constraint: ${reflectionToString(it)}")
     }
 
-    val search = Backtracking(cscSchedule, CSCScheduleAssignment.BLANK)
+    val search = CSCScheduleBacktracking(cscSchedule, CSCScheduleAssignment.BLANK)
     val finalAssignment = search.solve()
 
     log.info("Final Assignment: $finalAssignment")
