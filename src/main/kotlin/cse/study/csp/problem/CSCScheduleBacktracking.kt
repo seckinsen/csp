@@ -104,5 +104,4 @@ class CSCScheduleBacktracking(private val problem: CSCScheduleProblem,
     private fun retrieveTimeRange(variable: Variable): TimeRange =
             constraint.first { it.variable == variable }.timeRange
 
-
 }
